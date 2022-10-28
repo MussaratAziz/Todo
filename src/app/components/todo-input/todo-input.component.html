@@ -1,0 +1,9 @@
+<div class="flex justify-center px-8 py-4">
+    <form [formGroup]="todo">
+        <input class="flex-1 px-8 py-2 mr-2 rounded outline-none bg-slate-100" type="text" formControlName="title"
+            placeholder="Add a todo">
+        <button (click)="addTodo()"
+            class="px-8 py-2 text-white bg-blue-400 rounded cursor-pointer hover:bg-blue-600">Add</button>
+    </form>
+
+</div>

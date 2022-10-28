@@ -1,0 +1,22 @@
+<div class="flex items-center justify-between p-4 px-8 py-4 mx-8 my-2 rounded hover:shadow bg-slate-100">
+    <div class="flex items-center">
+        <div>{{todo.id}}</div>
+        <div class="ml-2 cursor-pointer" *ngIf="!editTodo;else inputBlock">{{todo.title}}</div>
+        <ng-template #inputBlock>
+            <input class="ml-2 outline-none" type="text" placeholder="Update title" [(ngModel)]="todoInput">
+        </ng-template>
+
+    </div>
+    <div class="flex">
+        <button *ngIf="editTodo; else elseBlock;"
+            class="px-8 py-2 mr-2 text-white bg-green-400 rounded cursor-pointer hover:bg-green-600"
+            (click)="updateTodo(todo)">Update</button>
+        <ng-template #elseBlock>
+            <button class="px-8 py-2 mr-2 text-white bg-blue-400 rounded cursor-pointer hover:bg-blue-600"
+                (click)="updateToggle()">Edit</button>
+        </ng-template>
+        <button class="px-8 py-2 text-white bg-red-400 rounded cursor-pointer hover:bg-red-600"
+            (click)="deleteTodo(todo.id)">Delete</button>
+    </div>
+
+</div>
